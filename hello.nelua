@@ -1,0 +1,12 @@
+local Hello: type = @void
+
+local function newHello(): *Hello <cimport> end
+local function helloToSomeone(self: *Hello, name: cstring): cstring <cimport> end
+local function gcHello(self: *Hello): void <cimport> end
+
+local myHello: *Hello = newHello()
+
+helloToSomeone(myHello, "World")
+helloToSomeone(myHello, "UrNightmaree")
+
+gcHello(myHello)
